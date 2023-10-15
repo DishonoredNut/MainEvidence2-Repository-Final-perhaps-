@@ -5,15 +5,14 @@ using UnityEngine;
 public class CheckpointScript : MonoBehaviour
 {
     public Transform targetPosition; // Reference to the target position in the Inspector
-    public GameObject objectToMove; // Reference to the object to be moved in the Inspector
 
     // This method is called when another object enters the collider of the checkpoint
     private void OnTriggerEnter(Collider other)
     {
-        if (objectToMove != null)
+        if (other.CompareTag("Player"))
         {
-            // Move the specified object to the target position
-            objectToMove.transform.position = targetPosition.position;
+            // Move the object with the "Player" tag to the target position
+            other.transform.position = targetPosition.position;
         }
     }
 
