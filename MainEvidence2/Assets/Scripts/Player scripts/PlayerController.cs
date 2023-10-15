@@ -2,35 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    public int PlayerHealth = 100;
     public float MoveSpeed = 10.0f;
     public float JumpHeight = 10.0f;
     public float RotationSpeed = 5.5f;
     private PlayerNewController controls;
     private Vector3 velocity;
     public float grav;
-    private UnityEngine.Vector2 move;
+    private UnityEngine.Vector2 move; // Specify UnityEngine namespace
     private CharacterController controller;
     public Transform ground;
     public float distanceFromGround = 0.4f;
     public LayerMask Ground;
     private bool Grounded;
+    public float teleportHeightThreshold = -10.0f; // Threshold height for teleportation
+    public Transform teleportLocation; // Location to teleport the player to
 
     void Awake()
     {
         controls = new PlayerNewController();
-        controller = GetComponent<CharacterController();
-    }
-
-    void Update()
-    {
-        Gravity();
-        PlayerMovement();
-        Jump();
+        controller = GetComponent<CharacterController>();
     }
 
     private void OnEnable()
@@ -41,6 +34,14 @@ public class PlayerController : MonoBehaviour
     private void OnDisable()
     {
         controls.Disable();
+    }
+
+    void Update()
+    {
+        Gravity();
+        PlayerMovement();
+        Jump();
+        CheckTeleport();
     }
 
     private void Gravity()
@@ -57,8 +58,9 @@ public class PlayerController : MonoBehaviour
 
     private void PlayerMovement()
     {
-        move = controls.GamePadMovement.Movement.ReadValue<UnityEngine.Vector2>();
+        move = controls.GamePadMovement.Movement.ReadValue<UnityEngine.Vector2>(); // Specify UnityEngine namespace
 
+        // Revert the forward and backward controls
         Vector3 movement = (move.y * transform.forward.normalized) + (move.x * transform.right.normalized);
 
         controller.Move(movement * MoveSpeed * Time.deltaTime);
@@ -72,29 +74,14 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // Deduct health when hit by an object with the "EnemyBullet" tag
-    private void OnTriggerEnter(Collider other)
+    private void CheckTeleport()
     {
-        if (other.CompareTag("EnemyBullet"))
+        if (transform.position.y <= teleportHeightThreshold)
         {
-            DeductHealth(20);
+            controller.enabled = false; // Disable the CharacterController temporarily
+            transform.position = teleportLocation.position;
+            velocity = Vector3.zero; // Reset the player's velocity
+            controller.enabled = true; // Re-enable the CharacterController
         }
-    }
-
-    // Deduct health when hit by a raycast called "EnemyMelee"
-    public void DeductHealth(int damage)
-    {
-        PlayerHealth -= damage;
-        if (PlayerHealth <= 0)
-        {
-            // Reload the scene or perform a game over action
-            ReloadScene();
-        }
-    }
-
-    // Reload the current scene
-    private void ReloadScene()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
