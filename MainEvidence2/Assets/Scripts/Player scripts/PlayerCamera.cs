@@ -2,12 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerCamera : MonoBehaviour
 {
-    public int PlayerHealth = 100; 
-    public float MoveSpeed = 10.0f; 
-    public float JumpHeight = 10.0f; 
-    public float RotationSpeed = 5.5f; 
     // Start is called before the first frame update
     void Start()
     {
