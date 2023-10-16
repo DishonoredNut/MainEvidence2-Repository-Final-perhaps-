@@ -8,6 +8,7 @@ TagManager:
   - Grapnel
   - Gun
   - Enemy
+  - PlayerBullet
   layers:
   - Default
   - TransparentFX

@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
     public int startingHealth = 100; // Initial player health
-    private int currentHealth; // Current player health
+    public int currentHealth; // Current player health
 
     private void Start()
     {
@@ -18,8 +18,9 @@ public class PlayerHealth : MonoBehaviour
         // Check if the player's health reaches zero or below
         if (currentHealth <= 0)
         {
-            // Player is dead, you can add game over logic here
-            Debug.Log("Player is dead!");
+            // Player is dead, destroy the player object
+            Debug.Log("Player is dead! Deleting the player object.");
+            Destroy(gameObject); // Destroy the player object
         }
     }
 
@@ -33,10 +34,11 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    // Detect and handle collisions with objects tagged as "EnemyAttack"
-    private void OnCollisionEnter(Collision collision)
+    // Instead of OnCollisionEnter, you can use OnTriggerEnter for better performance
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("EnemyAttack"))
+        // Check if the collider is tagged as "EnemyAttack"
+        if (other.CompareTag("EnemyAttack"))
         {
             // You can adjust the damage amount as needed
             int damageAmount = 10;
