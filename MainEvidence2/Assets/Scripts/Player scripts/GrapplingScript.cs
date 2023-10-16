@@ -10,6 +10,7 @@ public class GrapplingScript : MonoBehaviour
     public Transform grappleTip;
     public LayerMask whatToGrapple;
     public LineRenderer lr;
+    public AudioSource grapplingSound; // Reference to the grappling sound
 
     [Header("Grappling")]
     public float maxGrapple;
@@ -36,6 +37,7 @@ public class GrapplingScript : MonoBehaviour
             else
             {
                 StartGrappling();
+                PlayGrapplingSound(); // Play the grappling sound
             }
         }
     }
@@ -111,5 +113,13 @@ public class GrapplingScript : MonoBehaviour
         grapplingTimer = grapplingCooldown;
         lr.enabled = false;
         isGrappling = false;
+    }
+
+    private void PlayGrapplingSound()
+    {
+        if (grapplingSound != null)
+        {
+            grapplingSound.Play();
+        }
     }
 }

@@ -5,27 +5,27 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    public float MoveSpeed = 10.0f;
-    public float JumpHeight = 10.0f;
-    public float RotationSpeed = 5.5f;
-    private PlayerNewController controls;
-    private Vector3 velocity;
-    public float grav;
+    public float MoveSpeed = 10.0f; //Movespeed
+    public float JumpHeight = 10.0f; 
+    public float RotationSpeed = 5.5f; 
+    private PlayerNewController controls; 
+    private Vector3 velocity; 
+    public float grav; //sets up a gravity function so i don't have to use a rigidbody
     private UnityEngine.Vector2 move; 
     private CharacterController controller;
     public Transform ground;
-    public float distanceFromGround = 0.4f;
+    public float distanceFromGround = 0.4f; //elevates above ground by this
     public LayerMask Ground;
     private bool Grounded;
     public float teleportHeightThreshold = -10.0f; // Threshold height for teleportation
-    public Transform teleportLocation; // Location to teleport the player to
+    public Transform teleportLocation; // Location to teleport the player 
     public GameObject objectToTeleport; // Reference to the object to teleport
 
     public GameObject projectilePrefab; // Reference to the projectile prefab
     public Transform firepoint; // Reference to the firepoint transform
-    public float fireRate = 0.5f; // Firing rate in bullets per second
+    public float fireRate = 0.5f; 
     private float lastFireTime; // Time of the last bullet fired
-    public AudioSource fireSound; // Reference to an AudioSource for the firing sound
+    public AudioSource fireSound; 
     public float bulletSpeed = 10f; // Speed of the fired bullet
 
     void Awake()
@@ -67,21 +67,25 @@ public class PlayerController : MonoBehaviour
 
     private void PlayerMovement()
     {
-        move = controls.GamePadMovement.Movement.ReadValue<UnityEngine.Vector2>(); // Specify UnityEngine namespace
+        move = controls.GamePadMovement.Movement.ReadValue<UnityEngine.Vector2>(); // Specify UnityEngine namespace cause otheriwse wont work apparently
 
-        // Revert the forward and backward controls
+        // Revert the forward and backward controls cause they were inverted already so basically makes em right
         Vector3 movement = (move.y * transform.forward.normalized) + (move.x * transform.right.normalized);
 
         controller.Move(movement * MoveSpeed * Time.deltaTime);
     }
 
     private void Jump()
+{
+    // Create a raycast to check if the player is grounded
+    bool isGrounded = Physics.Raycast(transform.position, Vector3.down, distanceFromGround + 0.1f, Ground);
+
+    if (isGrounded && controls.GamePadMovement.Jump.triggered)
     {
-        if (controls.GamePadMovement.Jump.triggered)
-        {
-            velocity.y = Mathf.Sqrt(JumpHeight * -2f * grav);
-        }
+        velocity.y = Mathf.Sqrt(JumpHeight * -2f * grav);
     }
+}
+
 
     private void FireDaBullet()
     {
@@ -90,7 +94,7 @@ public class PlayerController : MonoBehaviour
             // Check if enough time has passed to fire another bullet
             if (Time.time - lastFireTime >= 1.0f / fireRate)
             {
-                // Create the projectile at the firepoint's position and rotation
+                // Create the projectile at the firepoint's position 
                 GameObject bullet = Instantiate(projectilePrefab, firepoint.position, firepoint.rotation);
 
                 // Access the bullet's Rigidbody component
@@ -122,7 +126,7 @@ public class PlayerController : MonoBehaviour
             objectToTeleport.transform.position = teleportLocation.position;
 
             
-            controller.enabled = false; // Disable the CharacterController temporarily
+            controller.enabled = false; // Disable the CharacterController
             transform.position = teleportLocation.position;
             velocity = Vector3.zero; // Reset the player's velocity
 
