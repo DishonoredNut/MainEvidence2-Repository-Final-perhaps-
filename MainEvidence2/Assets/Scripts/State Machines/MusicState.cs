@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MusicManager : MonoBehaviour
 {
-    // Define music states
+    // Define me music states
     public enum MusicState
     {
         Default,
@@ -32,13 +32,13 @@ public class MusicManager : MonoBehaviour
     {
         if (newState != currentMusicState)
         {
-            // Stop the current music
+            // Stops the current music
             StopMusic(currentMusicState);
 
-            // Update the current music state
+            // Updates the current music state
             currentMusicState = newState;
 
-            // Play the new music
+            // Plays the new music
             PlayMusic(currentMusicState);
         }
     }

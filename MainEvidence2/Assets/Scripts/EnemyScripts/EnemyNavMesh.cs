@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyNavMesh : MonoBehaviour
+public class EnemyNavMesh : MonoBehaviour //Fuuuu...heck yeah i recycled this script from scripting 2 these things are hard to make
 {
     public float patrolRadius = 10f; //area it will patrol
     public float chaseRadius = 5f; //detection radius

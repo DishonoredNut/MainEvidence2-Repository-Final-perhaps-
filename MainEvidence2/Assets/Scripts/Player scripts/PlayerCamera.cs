@@ -18,11 +18,11 @@ public class PlayerCamera : MonoBehaviour
     controls = new PlayerNewController(); 
     Cursor.lockState = CursorLockMode.Locked;
 
-    // Rotate the camera by 180 degrees to face the correct direction
+    // Rotate the camera by 180 degrees to face the correct direction cuase weird Sheise
     transform.Rotate(Vector3.up, 180);
 }
 
-    void Update() // Corrected method name to "Update"
+    void Update() //calls look function
     {
         Look(); 
     }

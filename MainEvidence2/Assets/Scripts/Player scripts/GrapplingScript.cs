@@ -64,7 +64,7 @@ public class GrapplingScript : MonoBehaviour
         if (grappleTime > 0)
             grapplingTimer -= Time.deltaTime;
 
-        // Simulate player movement towards the grapple point
+        // Simulates player movement towards the grapple point
         if (grappling)
         {
             float step = grappleSpeed * Time.deltaTime; // Use the grappleSpeed
@@ -104,7 +104,7 @@ public class GrapplingScript : MonoBehaviour
 
     private void BeginGrappling()
     {
-        // Add logic for what happens when the player starts grappling
+       
     }
 
     private void StopGrappling()

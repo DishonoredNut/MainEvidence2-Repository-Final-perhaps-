@@ -22,15 +22,15 @@ public class Ranger : Enemy
     {
         if (target != null && Vector3.Distance(transform.position, target.position) <= EnemyAttackRange)
         {
-            // Check if the fire cooldown has elapsed
+            // Check if the fire cooldown has called
             if (fireCooldown <= 0f)
             {
                 FireProjectile();
-                fireCooldown = 1.0f / fireRate; // Reset the cooldown
+                fireCooldown = 1.0f / fireRate; // Reset cooldwn
             }
             else
             {
-                fireCooldown -= Time.deltaTime; // Reduce the cooldown timer
+                fireCooldown -= Time.deltaTime; // Reduce the cooldwn timer
             }
         }
     }
@@ -39,10 +39,10 @@ public class Ranger : Enemy
     {
         if (target != null)
         {
-            // Calculate the direction to the target
+            // Calculates the direction to the target
             Vector3 fireDirection = (target.position - firePoint.position).normalized;
             
-            // Instantiate the projectile at the firepoint position
+            // Make the projectile at the firepoint position
             GameObject projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
             
             // Get the Rigidbody of the projectile

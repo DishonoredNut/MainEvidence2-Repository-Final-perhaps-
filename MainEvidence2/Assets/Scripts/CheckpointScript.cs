@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CheckpointScript : MonoBehaviour
+public class CheckpointScript : MonoBehaviour //This script didn't end up seing any use cause the player just kept going through it// DEFUNCT
 {
     public Transform targetPosition; // Reference to the target position in the Inspector
     public GameObject objectToTarget; // Reference to the game object to target
@@ -17,15 +17,5 @@ public class CheckpointScript : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        // You can put any initialization code here
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        // You can put any update code here
-    }
+    
 }

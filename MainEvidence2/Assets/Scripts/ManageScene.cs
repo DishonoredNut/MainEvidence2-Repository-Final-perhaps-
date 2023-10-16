@@ -5,18 +5,18 @@ using UnityEngine.SceneManagement; // Import the SceneManager class
 
 public class ManageScene : MonoBehaviour
 {
-    private GameObject player; // Reference to the player object
-    private PlayerHealth playerHealth; // Reference to the PlayerHealth script
+    private GameObject player; // References to the player object
+    private PlayerHealth playerHealth; // References to the PlayerHealth script
 
     // Start is called before the first frame update
     void Start()
     {
-        // Find the player object in the scene by tag (assuming it's tagged as "Player")
+       
         player = GameObject.FindGameObjectWithTag("Player");
 
         if (player != null)
         {
-            // Get the PlayerHealth component attached to the player object
+            // Gets the PlayerHealth component attached to the player object
             playerHealth = player.GetComponent<PlayerHealth>();
         }
     }
@@ -27,22 +27,22 @@ public class ManageScene : MonoBehaviour
         // Check if the player object is missing
         if (player == null)
         {
-            // Player is missing, restart the scene
+            // Player didn't go to college
             Debug.Log("Player is missing! Restarting the scene.");
             RestartScene();
         }
         else if (playerHealth != null && playerHealth.currentHealth <= 0)
         {
-            // Player is dead, restart the scene
+            // Player is dead
             Debug.Log("Player is dead! Restarting the scene.");
             RestartScene();
         }
 
-        // Check if the number of objects tagged as "Enemy" is zero
+        // Checks if the number of objects tagged as "Enemy" = 0
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         if (enemies.Length == 0)
         {
-            // Load the next scene in the build index
+            // Loads the next scene in the build index
             LoadNextScene();
         }
     }

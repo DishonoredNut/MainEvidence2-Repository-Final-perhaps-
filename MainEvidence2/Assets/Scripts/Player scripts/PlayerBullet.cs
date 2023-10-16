@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerBullet : MonoBehaviour
 {
-    public int damage = 50; // Set the damage value in the Inspector
-    public float despawnTime = 2.0f; // Set the despawn time in the Inspector
+    public int damage = 50; // I Set the damage value in the Inspector
+    public float despawnTime = 2.0f; // Sets the despawn time 
 
     void Start()
     {
@@ -13,18 +13,15 @@ public class PlayerBullet : MonoBehaviour
         StartCoroutine(DespawnAfterDelay());
     }
 
-    void Update()
-    {
-        // This script could also handle bullet movement, if needed.
-        // You can add code here to move the bullet.
-    }
+    
+    
 
     // OnTriggerEnter is called when the bullet collides with another object
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Enemy"))
         {
-            // Check if the colliding object is tagged as "Enemy"
+            // call if the colliding object is tagged as "Enemy"
             Enemy enemy = other.GetComponent<Enemy>();
             if (enemy != null)
             {

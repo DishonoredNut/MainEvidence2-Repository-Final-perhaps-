@@ -18,13 +18,13 @@ public class PlayerHealth : MonoBehaviour
         // Check if the player's health reaches zero or below
         if (currentHealth <= 0)
         {
-            // Player is dead, destroy the player object
+            // destroy the player object
             Debug.Log("Player is dead! Deleting the player object.");
             Destroy(gameObject); // Destroy the player object
         }
     }
 
-    // Function to decrease player's health
+    // decreases player health
     public void TakeDamage(int damage)
     {
         if (damage > 0)
