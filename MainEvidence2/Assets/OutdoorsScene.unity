@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 896.1017, g: 1021.65735, b: 1238.3932, a: 1}
+  m_IndirectSpecularColor: {r: 896.6144, g: 1021.4933, b: 1237.4386, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -166,8 +166,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: e0d1f51cde14d7346985c3bdac7c7915, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -969,6 +969,11 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 803032087}
+    - target: {fileID: 2957113769487662711, guid: 11c716a22525de1498dcbf128c180254,
+        type: 3}
+      propertyPath: raycastRadius
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 5171307382695217953, guid: 11c716a22525de1498dcbf128c180254,
         type: 3}
       propertyPath: m_Name
@@ -2352,6 +2357,37 @@ MonoBehaviour:
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 0}
   m_BuildHeightMesh: 0
+--- !u!1 &429159531
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 429159532}
+  m_Layer: 0
+  m_Name: GunFirepoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &429159532
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 429159531}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.029578336, z: -0, w: -0.9995625}
+  m_LocalPosition: {x: -0.034397017, y: -0.748, z: 0.6821629}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1823688467}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &429612156
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3863,6 +3899,11 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 803032087}
+    - target: {fileID: 2957113769487662711, guid: 11c716a22525de1498dcbf128c180254,
+        type: 3}
+      propertyPath: raycastRadius
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 5171307382695217953, guid: 11c716a22525de1498dcbf128c180254,
         type: 3}
       propertyPath: m_Name
@@ -4210,6 +4251,11 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 803032087}
+    - target: {fileID: 2957113769487662711, guid: 11c716a22525de1498dcbf128c180254,
+        type: 3}
+      propertyPath: raycastRadius
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 5171307382695217953, guid: 11c716a22525de1498dcbf128c180254,
         type: 3}
       propertyPath: m_Name
@@ -4509,7 +4555,7 @@ Transform:
   m_GameObject: {fileID: 803032083}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -82.4, y: 9.61, z: -312.2}
+  m_LocalPosition: {x: -82.4, y: 6.27, z: -312.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4568,6 +4614,12 @@ MonoBehaviour:
   teleportHeightThreshold: -80
   teleportLocation: {fileID: 1943119175}
   objectToTeleport: {fileID: 803032083}
+  projectilePrefab: {fileID: 2361551803319048517, guid: f704c8062191d174bb39b960fc80fc4e,
+    type: 3}
+  firepoint: {fileID: 429159532}
+  fireRate: 1
+  fireSound: {fileID: 740211}
+  bulletSpeed: 50
 --- !u!114 &803032090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4867,6 +4919,11 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 803032087}
+    - target: {fileID: 2957113769487662711, guid: 11c716a22525de1498dcbf128c180254,
+        type: 3}
+      propertyPath: raycastRadius
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 5171307382695217953, guid: 11c716a22525de1498dcbf128c180254,
         type: 3}
       propertyPath: m_Name
@@ -5298,7 +5355,7 @@ MonoBehaviour:
   Damage: 50
   EnemyAttackRange: 30
   target: {fileID: 803032087}
-  raycastRadius: 2
+  raycastRadius: 4
   damageAmount: 10
   damageCooldown: 2
 --- !u!1 &977400706
@@ -9350,6 +9407,7 @@ Transform:
   m_Children:
   - {fileID: 790866016}
   - {fileID: 429612157}
+  - {fileID: 429159532}
   m_Father: {fileID: 803032087}
   m_LocalEulerAnglesHint: {x: 0, y: 363.39, z: 0}
 --- !u!114 &1823688468
@@ -11397,6 +11455,11 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 803032087}
+    - target: {fileID: 2957113769487662711, guid: 11c716a22525de1498dcbf128c180254,
+        type: 3}
+      propertyPath: raycastRadius
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 5171307382695217953, guid: 11c716a22525de1498dcbf128c180254,
         type: 3}
       propertyPath: m_Name
