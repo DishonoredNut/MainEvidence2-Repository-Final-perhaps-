@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour
     public int Damage = 50;
     public float EnemyAttackRange = 30f;
 
-    public Transform target; // Reference to the target  in the Inspector
+    public Transform target; // Reference to the target in the Inspector
 
     // Virtual method for firing the projectile
     public virtual void FireProjectile()
@@ -18,6 +18,18 @@ public class Enemy : MonoBehaviour
         {
             // Implement projectile firing logic here
             Debug.Log("Firing at the target!");
+        }
+    }
+
+    // Method to take damage
+    public void TakeDamage(int damage)
+    {
+        EnemyHealth -= damage;
+
+        if (EnemyHealth <= 0)
+        {
+            // Enemy is defeated; you can add further logic here
+            Destroy(gameObject);
         }
     }
 

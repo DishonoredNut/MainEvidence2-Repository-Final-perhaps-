@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     private PlayerNewController controls;
     private Vector3 velocity;
     public float grav;
-    private UnityEngine.Vector2 move; // Specify UnityEngine namespace
+    private UnityEngine.Vector2 move; 
     private CharacterController controller;
     public Transform ground;
     public float distanceFromGround = 0.4f;
@@ -121,7 +121,7 @@ public class PlayerController : MonoBehaviour
             // Teleport the specified object to the teleport location
             objectToTeleport.transform.position = teleportLocation.position;
 
-            // Optionally, reset the player's position as well.
+            
             controller.enabled = false; // Disable the CharacterController temporarily
             transform.position = teleportLocation.position;
             velocity = Vector3.zero; // Reset the player's velocity

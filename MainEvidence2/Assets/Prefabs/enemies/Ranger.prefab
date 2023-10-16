@@ -119,9 +119,10 @@ GameObject:
   - component: {fileID: 1109826628739808979}
   - component: {fileID: 5859496673093083391}
   - component: {fileID: 6502868712736412049}
+  - component: {fileID: 7033965517311895905}
   m_Layer: 3
   m_Name: Body
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -252,6 +253,26 @@ MonoBehaviour:
   chaseRadius: 10
   chaseDuration: 5
   target: {fileID: 0}
+--- !u!114 &7033965517311895905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3500298984615489245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcb042109706d2044b246cb90603e2be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemyHealth: 20
+  Damage: 100
+  EnemyAttackRange: 50
+  target: {fileID: 0}
+  projectilePrefab: {fileID: 2225909232043553449, guid: 1bae23a3d6b40d14cbdd43249ea70924,
+    type: 3}
+  projectileSpeed: 30
+  firePoint: {fileID: 1872048969085574685}
 --- !u!1 &6944588045146811123
 GameObject:
   m_ObjectHideFlags: 0
@@ -261,10 +282,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6953143403268024193}
-  - component: {fileID: 7004564096666434248}
+  - component: {fileID: 2396129912171573520}
   m_Layer: 0
   m_Name: Ranger
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -278,33 +299,40 @@ Transform:
   m_GameObject: {fileID: 6944588045146811123}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -65.4, y: 11.4, z: -245.88261}
+  m_LocalPosition: {x: -85.3, y: 17.6, z: -246.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6483049631088659719}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7004564096666434248
-MonoBehaviour:
+--- !u!54 &2396129912171573520
+Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6944588045146811123}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bcb042109706d2044b246cb90603e2be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EnemyHealth: 50
-  Damage: 100
-  EnemyAttackRange: 50
-  target: {fileID: 0}
-  projectilePrefab: {fileID: 2225909232043553449, guid: 1bae23a3d6b40d14cbdd43249ea70924,
-    type: 3}
-  projectileSpeed: 30
-  firePoint: {fileID: 1872048969085574685}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &7015529873697243951
 GameObject:
   m_ObjectHideFlags: 0
