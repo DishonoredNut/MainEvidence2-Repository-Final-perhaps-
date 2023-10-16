@@ -273,6 +273,7 @@ MonoBehaviour:
     type: 3}
   projectileSpeed: 30
   firePoint: {fileID: 1872048969085574685}
+  fireRate: 0.5
 --- !u!1 &6944588045146811123
 GameObject:
   m_ObjectHideFlags: 0

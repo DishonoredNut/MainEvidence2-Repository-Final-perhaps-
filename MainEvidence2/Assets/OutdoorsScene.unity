@@ -4707,7 +4707,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 2361551803319048517, guid: f704c8062191d174bb39b960fc80fc4e,
     type: 3}
   firepoint: {fileID: 429159532}
-  fireRate: 2
+  fireRate: 0.7
   fireSound: {fileID: 740211}
   bulletSpeed: 100
 --- !u!114 &803032090
@@ -5441,7 +5441,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c37ca8fe4a17f9a4aaec30bee70177c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyHealth: 50
+  EnemyHealth: 90
   Damage: 50
   EnemyAttackRange: 30
   target: {fileID: 803032087}
@@ -5609,7 +5609,7 @@ Transform:
   m_GameObject: {fileID: 984704666}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.3, y: 14.09, z: -119.16}
+  m_LocalPosition: {x: 2.3, y: 14.09, z: -117}
   m_LocalScale: {x: 11.166432, y: 2.6063178, z: 6.9573812}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6301,7 +6301,7 @@ PrefabInstance:
     - target: {fileID: 7033965517311895905, guid: 420772cc4a440bc4ca838e8f0e556674,
         type: 3}
       propertyPath: projectileSpeed
-      value: 1
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11641,11 +11641,6 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 803032087}
-    - target: {fileID: 2957113769487662711, guid: 11c716a22525de1498dcbf128c180254,
-        type: 3}
-      propertyPath: raycastRadius
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 5171307382695217953, guid: 11c716a22525de1498dcbf128c180254,
         type: 3}
       propertyPath: m_Name

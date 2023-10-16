@@ -159,11 +159,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c37ca8fe4a17f9a4aaec30bee70177c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyHealth: 50
+  EnemyHealth: 100
   Damage: 50
   EnemyAttackRange: 30
   target: {fileID: 0}
-  raycastRadius: 2
+  raycastRadius: 4
   damageAmount: 10
   damageCooldown: 2
 --- !u!1 &3848564938079354620
