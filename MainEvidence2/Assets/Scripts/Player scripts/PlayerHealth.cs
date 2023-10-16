@@ -33,16 +33,4 @@ public class PlayerHealth : MonoBehaviour
             Debug.Log("Player took " + damage + " damage. Current Health: " + currentHealth);
         }
     }
-
-    // Instead of OnCollisionEnter, you can use OnTriggerEnter for better performance
-    private void OnTriggerEnter(Collider other)
-    {
-        // Check if the collider is tagged as "EnemyAttack"
-        if (other.CompareTag("EnemyAttack"))
-        {
-            // You can adjust the damage amount as needed
-            int damageAmount = 10;
-            TakeDamage(damageAmount);
-        }
-    }
 }

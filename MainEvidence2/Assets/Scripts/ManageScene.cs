@@ -37,6 +37,14 @@ public class ManageScene : MonoBehaviour
             Debug.Log("Player is dead! Restarting the scene.");
             RestartScene();
         }
+
+        // Check if the number of objects tagged as "Enemy" is zero
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        if (enemies.Length == 0)
+        {
+            // Load the next scene in the build index
+            LoadNextScene();
+        }
     }
 
     // Function to restart the current scene
@@ -45,5 +53,26 @@ public class ManageScene : MonoBehaviour
         // Get the current scene's build index and reload it
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex);
+    }
+
+    // Function to load the next scene
+    private void LoadNextScene()
+    {
+        // Get the current scene's build index
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        
+        // Load the next scene (increment the build index)
+        int nextSceneIndex = currentSceneIndex + 1;
+        
+        // Check if the next scene exists
+        if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
+        {
+            SceneManager.LoadScene(nextSceneIndex);
+        }
+        else
+        {
+            // No more scenes in the build index (end of the game)
+            Debug.Log("No more scenes to load.");
+        }
     }
 }

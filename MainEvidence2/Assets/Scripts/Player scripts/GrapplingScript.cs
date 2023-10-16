@@ -6,34 +6,39 @@ using UnityEngine.InputSystem;
 public class GrapplingScript : MonoBehaviour
 {
     [Header("Refs")]
-    private PlayerController pm;
     public Transform cam;
     public Transform grappleTip;
     public LayerMask whatToGrapple;
-    public LineRenderer lr; 
+    public LineRenderer lr;
 
     [Header("Grappling")]
     public float maxGrapple;
     public float grappleTime; // Delay
+    public float grappleSpeed = 10.0f; // Grapple speed
     private Vector3 pointToGrapple;
 
     [Header("Cooldown")]
     public float grapplingCooldown;
     private float grapplingTimer;
-
     private bool grappling;
+    private bool isGrappling;
 
     private PlayerNewController controls; // Define the controls variable
 
-   private void GrapplingBoi()
-{
-    if (controls.GamePadMovement.Grappel.triggered) // Check  input action for grapple
+    private void GrapplingBoi()
     {
-        Debug.Log("Grapple input triggered"); // Add a debug log for testing
-        StartGrappling();
+        if (controls.GamePadMovement.Grappel.triggered) // Check input action for grapple
+        {
+            if (isGrappling)
+            {
+                StopGrappling();
+            }
+            else
+            {
+                StartGrappling();
+            }
+        }
     }
-}
-
 
     private void Awake()
     {
@@ -50,24 +55,26 @@ public class GrapplingScript : MonoBehaviour
         controls.Disable();
     }
 
-    private void Start()
-    {
-        pm = GetComponent<PlayerController>();
-    }
-
-   private void Update()
+    private void Update()
     {
         GrapplingBoi();
 
         if (grappleTime > 0)
-        grapplingTimer -= Time.deltaTime;
-    }
-    private void LateUpdate()
-    {
-        if(grappling)
-        lr.SetPosition(0,grappleTip.position); 
+            grapplingTimer -= Time.deltaTime;
+
+        // Simulate player movement towards the grapple point
+        if (grappling)
+        {
+            float step = grappleSpeed * Time.deltaTime; // Use the grappleSpeed
+            transform.position = Vector3.MoveTowards(transform.position, pointToGrapple, step);
+        }
     }
 
+    private void LateUpdate()
+    {
+        if (grappling)
+            lr.SetPosition(0, grappleTip.position);
+    }
 
     private void StartGrappling()
     {
@@ -78,14 +85,19 @@ public class GrapplingScript : MonoBehaviour
         {
             pointToGrapple = hit.point;
             Invoke(nameof(BeginGrappling), grappleTime);
+
+            lr.enabled = true;
+            lr.SetPosition(0, grappleTip.position);
+            lr.SetPosition(1, pointToGrapple);
         }
         else
         {
             pointToGrapple = cam.position + cam.forward * maxGrapple;
             Invoke(nameof(StopGrappling), grappleTime);
         }
-        lr.enabled = true; 
-        lr.SetPosition(1, pointToGrapple); 
+
+        grappling = true;
+        isGrappling = true;
     }
 
     private void BeginGrappling()
@@ -97,6 +109,7 @@ public class GrapplingScript : MonoBehaviour
     {
         grappling = false;
         grapplingTimer = grapplingCooldown;
-        lr.enabled = false; 
+        lr.enabled = false;
+        isGrappling = false;
     }
 }
