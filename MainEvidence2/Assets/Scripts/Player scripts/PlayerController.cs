@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
     public float teleportHeightThreshold = -10.0f; // Threshold height for teleportation
     public Transform teleportLocation; // Location to teleport the player to
 
+    public GameObject objectToTeleport; // Reference to the object to teleport
+
     void Awake()
     {
         controls = new PlayerNewController();
@@ -75,13 +77,25 @@ public class PlayerController : MonoBehaviour
     }
 
     private void CheckTeleport()
+{
+    if (transform.position.y <= teleportHeightThreshold)
     {
-        if (transform.position.y <= teleportHeightThreshold)
+        // Teleport the specified object to the teleport location
+        objectToTeleport.transform.position = teleportLocation.position;
+
+        // Optionally, reset the player's position as well.
+        controller.enabled = false; // Disable the CharacterController temporarily
+        transform.position = teleportLocation.position;
+        velocity = Vector3.zero; // Reset the player's velocity
+
+        // Teleport all child objects
+        foreach (Transform child in objectToTeleport.transform)
         {
-            controller.enabled = false; // Disable the CharacterController temporarily
-            transform.position = teleportLocation.position;
-            velocity = Vector3.zero; // Reset the player's velocity
-            controller.enabled = true; // Re-enable the CharacterController
+            child.position = teleportLocation.position;
         }
+
+        controller.enabled = true; // Re-enable the CharacterController
     }
+}
+
 }
