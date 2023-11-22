@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 896.07825, g: 1021.24524, b: 1237.4474, a: 1}
+  m_IndirectSpecularColor: {r: 833.7706, g: 889.4855, b: 887.15295, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5223,8 +5223,8 @@ CharacterController:
   serializedVersion: 3
   m_Height: 2
   m_Radius: 0.5
-  m_SlopeLimit: 30
-  m_StepOffset: 1
+  m_SlopeLimit: 45
+  m_StepOffset: 1.2
   m_SkinWidth: 1
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
