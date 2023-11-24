@@ -6,7 +6,8 @@ using UnityEngine.Events;
 public class Coins : MonoBehaviour
 {
     public UnityEvent collectCoin;
-    public AudioSource collectSound; // Reference to the AudioSource
+    public AudioSource collectSource; // Reference to the AudioSource
+    public AudioClip coinCollectClip; // The audio clip to play when the coin is collected
 
     private void Start()
     {
@@ -29,10 +30,10 @@ public class Coins : MonoBehaviour
         {
             collectCoin.Invoke();
 
-            // Play the collect sound if AudioSource is assigned
-            if (collectSound != null)
+            // Play the specified audio clip from the AudioSource
+            if (collectSource != null && coinCollectClip != null)
             {
-                collectSound.Play();
+                collectSource.PlayOneShot(coinCollectClip);
             }
 
             Destroy(gameObject);
