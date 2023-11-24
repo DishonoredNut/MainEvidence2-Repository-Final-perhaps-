@@ -1,23 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
-using TMPro ;
-using UnityEngine.InputSystem.Android.LowLevel;
 
 public class UI : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI coinsText; 
-    Controller controller ; 
+    [SerializeField] TextMeshProUGUI scoreText;
+    Controller controller;
 
-
-    public void UpdateCoins()
+    public void Start()
     {
-        controller = GameObject.FindGameObjectWithTag("Controller").GetComponent<Controller>();
-
+        controller = GameObject.FindGameObjectWithTag("Controller")?.GetComponent<Controller>();
     }
 
     public void UpdateScore()
     {
-        coinsText.text = controller.coins.ToString();
+        if (controller != null)
+        {
+            scoreText.text = controller.score.ToString();
+        }
     }
 }
