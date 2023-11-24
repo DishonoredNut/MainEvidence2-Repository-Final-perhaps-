@@ -289,7 +289,7 @@ GameObject:
   - component: {fileID: 7307264641071059111}
   m_Layer: 0
   m_Name: Brawler
-  m_TagString: Untagged
+  m_TagString: Brawler
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -302,8 +302,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5171307382695217953}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -43.752205, y: -5.421872, z: -13.166321}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 21.66, y: 9.98, z: -126.29}
   m_LocalScale: {x: 0.47911462, y: 0.4269809, z: 0.7204993}
   m_ConstrainProportionsScale: 0
   m_Children:

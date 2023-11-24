@@ -151,8 +151,8 @@ GameObject:
   - component: {fileID: 5859496673093083391}
   - component: {fileID: 6502868712736412049}
   - component: {fileID: 7033965517311895905}
-  - component: {fileID: 7507743083774179048}
-  - component: {fileID: 2609328700077935966}
+  - component: {fileID: 4011681873687588903}
+  - component: {fileID: 123498655895401351}
   m_Layer: 3
   m_Name: Body
   m_TagString: Enemy
@@ -301,7 +301,7 @@ MonoBehaviour:
   EnemyHealth: 20
   Damage: 100
   EnemyAttackRange: 50
-  explosionVFX: {fileID: 8836355376779781083}
+  explosionVFX: {fileID: 0}
   explosionPoint: {fileID: 903324645800600417}
   explosionDuration: 1
   target: {fileID: 0}
@@ -310,7 +310,7 @@ MonoBehaviour:
   projectileSpeed: 30
   firePoint: {fileID: 1872048969085574685}
   fireRate: 0.5
---- !u!2083052967 &7507743083774179048
+--- !u!2083052967 &4011681873687588903
 VisualEffect:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -348,7 +348,7 @@ VisualEffect:
       m_Array: []
     m_Bool:
       m_Array: []
---- !u!73398921 &2609328700077935966
+--- !u!73398921 &123498655895401351
 VFXRenderer:
   serializedVersion: 1
   m_ObjectHideFlags: 0
@@ -511,7 +511,7 @@ GameObject:
   - component: {fileID: 2396129912171573520}
   m_Layer: 0
   m_Name: Ranger
-  m_TagString: Untagged
+  m_TagString: Ranger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
