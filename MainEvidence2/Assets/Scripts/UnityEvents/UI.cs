@@ -7,7 +7,7 @@ public class UI : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI scoreText;
     Controller controller;
-
+//looks for tagged object and then gets that objects
     public void Start()
     {
         controller = GameObject.FindGameObjectWithTag("Controller")?.GetComponent<Controller>();

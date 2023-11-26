@@ -15563,7 +15563,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   virtualCamera: {fileID: 716164038}
-  switchBackDelay: 5
+  switchBackDelay: 2
 --- !u!1001 &1855225629
 PrefabInstance:
   m_ObjectHideFlags: 0
