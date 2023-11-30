@@ -27,7 +27,7 @@ public class ManageScene : MonoBehaviour
         // Check if the player object is missing
         if (player == null)
         {
-            // Player didn't go to college
+            // Player didn't go to college, or rather, restart, just a bit of humor here idk
             Debug.Log("Player is missing! Restarting the scene.");
             RestartScene();
         }

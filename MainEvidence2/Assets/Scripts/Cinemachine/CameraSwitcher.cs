@@ -17,10 +17,10 @@ public class CameraSwitcher : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other)
-    {
+    {   //checks if the collision tag is the player
         if (other.CompareTag("Player"))
         {
-            SwitchToVirtualCamera();
+            SwitchToVirtualCamera(); 
             StartCoroutine(SwitchBackAfterDelay());
         }
     }
